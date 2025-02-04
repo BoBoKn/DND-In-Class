@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kies je karakter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Kies je karakter</h1>
+        <div class="cards">
+            <!-- Mage Card -->
+            <a href="pages/mage.html">
+                <div class="card" id="mage-card" onclick="selectCharacter('mage.html')">
+                    <img src="imgs/mage.jpg" alt="Mage">
+                    <h2>Mage</h2>
+                    <p>Speciale eigenschap: +2 beats</p>
+                </div>
+            </a>
+            <!-- Bard Card -->
+            <a href="pages/bard.html">
+                <div class="card" id="bard-card" onclick="selectCharacter('bard.html')">
+                    <img src="imgs/bard.jpg" alt="Bard">
+                    <h2>Bard</h2>
+                    <p>Speciale eigenschap: +1 melodieën en +1 beats</p>
+                </div>
+            </a>
+            <!-- Barbarian Card -->
+            <a href="pages/barbarian.html">
+                <div class="card" id="barbarian-card" onclick="selectCharacter('barbarian.html')">
+                    <img src="imgs/barbarian.jpg" alt="Barbarian">
+                    <h2>Barbarian</h2>
+                    <p>Speciale eigenschap: +2 melodieën</p>
+                </div>
+            </a>    
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
