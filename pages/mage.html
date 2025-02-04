@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karakterpagina - Mage</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mage</h1>
+        <div class="card" id="mage-card" onclick="selectCharacter('mage.html')">
+            <img src="../imgs/mage.jpg" alt="Mage">
+            <h2>Mage</h2>
+        </div>
+        <br>
+        <div class="health-container">
+            <div id="health-bar" class="health-bar"></div>
+        </div>
+        <p id="health-text">HP: 100/100</p>
+        <div class="buttons">
+            <button onclick="changeHealth(-5)">Schrammetje (-5 HP)</button>
+            <button onclick="changeHealth(-10)">Hit (-10 HP)</button>
+            <button onclick="changeHealth(-20)">Big Hit (-20 HP)</button>
+            <button onclick="changeHealth(-30)">Critical Hit (-30 HP)</button>
+            <button onclick="changeHealth(10)">Kleine Heal (+10 HP)</button>
+            <button onclick="changeHealth(20)">Grote Heal (+20 HP)</button>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>
