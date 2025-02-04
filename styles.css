@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+    color: white;
+    display: flex; /* Zorgt ervoor dat de body een flex-container is */
+    justify-content: center; /* Horizontaal centreren van de container */
+    align-items: center; /* Verticaal centreren van de container */
+    height: 100vh; /* Zorgt ervoor dat de pagina de volledige hoogte van het scherm vult */
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zorgt ervoor dat de inhoud van de container gecentreerd is */
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Meer ruimte tussen de kaarten */
+    margin-bottom: 40px; /* Ruimte tussen de kaarten en de health bar */
+}
+
+.card {
+    background: #222;
+    border-radius: 10px;
+    width: 350px; /* 75% groter dan 200px */
+    height: 525px; /* 75% groter dan 300px */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zorgt ervoor dat de inhoud van de kaart gecentreerd wordt */
+    justify-content: center; /* Zorgt ervoor dat de inhoud van de kaart verticaal gecentreerd is */
+}
+
+.card:hover {
+    transform: rotateY(5deg) rotateX(5deg);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 60%; /* 60% van de hoogte van de kaart */
+    object-fit: cover; /* Zorgt ervoor dat de afbeelding goed schaalt zonder vervorming */
+    border-bottom: 2px solid gold;
+}
+
+.card h2 {
+    margin: 15px 0 10px;
+    font-size: 2rem;
+    color: gold;
+}
+
+.card p {
+    font-size: 1.25rem;
+    color: #ccc;
+}
+
+.card.selected {
+    border: 3px solid gold;
+    box-shadow: 0 0 20px gold;
+    animation: glow 0.5s ease;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px gold;
+    }
+    100% {
+        box-shadow: 0 0 20px gold;
+    }
+}
+
+.health-container {
+    width: 100%;
+    height: 30px;
+    background: #444;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 2px solid white;
+}
+
+.health-bar {
+    height: 100%;
+    width: 100%; /* Start op 100% */
+    background: green;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+#health-text {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    background: #222;
+    color: white;
+    border: 2px solid gold;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: gold;
+    color: black;
+}
+
+/* Schudden van de kaart */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Animatie voor de zwevende schade (rood voor damage) */
+@keyframes floatDamage {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+}
+
+/* Animatie voor de zwevende heal (groen voor healing) */
+@keyframes floatHeal {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+}
+
+/* Gemeenschappelijke stijlen voor de zwevende tekst (damage of heal) */
+.damage, .heal {
+    position: absolute;
+    top: 50%; /* Start in het midden van de kaart */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center de tekst boven de kaart */
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Rood voor damage */
+.damage {
+    color: red;
+    animation: floatDamage 1.5s ease-out forwards;
+}
+
+/* Groen voor healing */
+.heal {
+    color: green;
+    animation: floatHeal 1.5s ease-out forwards;
+}
+
+/* Groene plusjes voor healing */
+.plus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem; /* Standaard grootte */
+    color: green;
+    animation: fadeInOut 2s ease-in-out forwards;
+}
+
+/* Fade-in en fade-out voor de plusjes */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
