@@ -4,10 +4,10 @@ body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to bottom, #1a1a2e, #16213e);
     color: white;
-    display: flex; /* Zorgt ervoor dat de body een flex-container is */
-    justify-content: center; /* Horizontaal centreren van de container */
-    align-items: center; /* Verticaal centreren van de container */
-    height: 100vh; /* Zorgt ervoor dat de pagina de volledige hoogte van het scherm vult */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
     text-align: center;
 }
 
@@ -15,7 +15,7 @@ body {
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Zorgt ervoor dat de inhoud van de container gecentreerd is */
+    align-items: center; 
     text-align: center;
 }
 
@@ -27,15 +27,15 @@ h1 {
 .cards {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Meer ruimte tussen de kaarten */
-    margin-bottom: 40px; /* Ruimte tussen de kaarten en de health bar */
+    gap: 30px; 
+    margin-bottom: 40px; 
 }
 
 .card {
     background: #222;
     border-radius: 10px;
-    width: 350px; /* 75% groter dan 200px */
-    height: 525px; /* 75% groter dan 300px */
+    width: 350px; 
+    height: 525px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     perspective: 1000px;
     cursor: pointer;
@@ -44,8 +44,8 @@ h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Zorgt ervoor dat de inhoud van de kaart gecentreerd wordt */
-    justify-content: center; /* Zorgt ervoor dat de inhoud van de kaart verticaal gecentreerd is */
+    align-items: center; 
+    justify-content: center; 
 }
 
 .card:hover {
@@ -55,8 +55,8 @@ h1 {
 
 .card img {
     width: 100%;
-    height: 60%; /* 60% van de hoogte van de kaart */
-    object-fit: cover; /* Zorgt ervoor dat de afbeelding goed schaalt zonder vervorming */
+    height: 60%; 
+    object-fit: cover; 
     border-bottom: 2px solid gold;
 }
 
@@ -131,7 +131,7 @@ button:hover {
     color: black;
 }
 
-/* Schudden van de kaart */
+
 @keyframes shake {
     0% {
         transform: translateX(0);
@@ -150,7 +150,7 @@ button:hover {
     }
 }
 
-/* Animatie voor de zwevende schade (rood voor damage) */
+
 @keyframes floatDamage {
     0% {
         opacity: 1;
@@ -166,7 +166,7 @@ button:hover {
     }
 }
 
-/* Animatie voor de zwevende heal (groen voor healing) */
+
 @keyframes floatHeal {
     0% {
         opacity: 1;
@@ -182,30 +182,30 @@ button:hover {
     }
 }
 
-/* Gemeenschappelijke stijlen voor de zwevende tekst (damage of heal) */
+
 .damage, .heal {
     position: absolute;
-    top: 50%; /* Start in het midden van de kaart */
+    top: 50%; 
     left: 50%;
-    transform: translate(-50%, -50%); /* Center de tekst boven de kaart */
+    transform: translate(-50%, -50%);
     font-size: 2rem;
     font-weight: bold;
     z-index: 2;
 }
 
-/* Rood voor damage */
+
 .damage {
     color: red;
     animation: floatDamage 1.5s ease-out forwards;
 }
 
-/* Groen voor healing */
+
 .heal {
     color: green;
     animation: floatHeal 1.5s ease-out forwards;
 }
 
-/* Groene plusjes voor healing */
+
 .plus {
     position: absolute;
     top: 50%;
@@ -216,7 +216,7 @@ button:hover {
     animation: fadeInOut 2s ease-in-out forwards;
 }
 
-/* Fade-in en fade-out voor de plusjes */
+
 @keyframes fadeInOut {
     0% {
         opacity: 0;
